@@ -54,6 +54,7 @@ namespace ReverseProxyApplication
                 var newContent = stringContent.Replace("https://www.google.com", "/google")
                     .Replace("https://www.gstatic.com", "/googlestatic")
                     .Replace("https://docs.google.com/forms", "/googleforms");
+                context.Response.ContentLength = null;
                 await context.Response.WriteAsync(newContent, Encoding.UTF8);
             } else
             {
